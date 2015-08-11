@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<bean id="loanDao" class="com.homework.LoanDao">
+		<property name="loans">
+			<map key-type="java.lang.Long" value-type="com.homework.Loan">
+				<entry key="0">
+					<bean class="com.homework.Loan"
+						p:personId="0"
+						p:amount="50.00"
+						p:term="01.10.2015"
+						p:approved="true"
+					/>
+				</entry>
+				<entry key="0">
+					<bean class="com.homework.Loan"
+						p:personId="1"
+						p:amount="100.00"
+						p:term="15.11.2015"
+						p:approved="false"
+					/>
+				</entry>
+				<entry key="1">
+					<bean class="com.homework.Loan"
+						p:personId="2"
+						p:amount="150.00"
+						p:term="06.09.2015"
+						p:approved="true"
+					/>
+				</entry>
+				<entry key="2">
+					<bean class="com.homework.Loan"
+						p:personId="0"
+						p:amount="40.00"
+						p:term="01.12.2015"
+						p:approved="false"
+					/>
+				</entry>
+				<entry key="3">
+					<bean class="com.homework.Loan"
+						p:personId="1"
+						p:amount="80.00"
+						p:term="17.10.2015"
+						p:approved="true"
+					/>
+				</entry>
+				<entry key="4">
+					<bean class="com.homework.Loan"
+						p:personId="2"
+						p:amount="20.00"
+						p:term="01.11.2015"
+						p:approved="false"
+					/>
+				</entry>
+				<entry key="5">
+					<bean class="com.homework.Loan"
+						p:personId="0"
+						p:amount="55.00"
+						p:term="01.10.2015"
+						p:approved="true"
+					/>
+				</entry>
+				<entry key="6">
+					<bean class="com.homework.Loan"
+						p:personId="1"
+						p:amount="142.00"
+						p:term="28.09.2015"
+						p:approved="false"
+					/>
+				</entry>
+				<entry key="7">
+					<bean class="com.homework.Loan"
+						p:personId="2"
+						p:amount="28.00"
+						p:term="16.10.2015"
+						p:approved="true"
+					/>
+				</entry>
+				<entry key="8">
+					<bean class="com.homework.Loan"
+						p:personId="0"
+						p:amount="200.00"
+						p:term="01.10.2015"
+						p:approved="false"
+					/>
+				</entry>
+				<entry key="9">
+					<bean class="com.homework.Loan"
+						p:personId="1"
+						p:amount="100.00"
+						p:term="01.10.2015"
+						p:approved="true"
+					/>
+				</entry>
+			</map>
+		</property>
+		<property name="lastUnusedId" value="10"></property>
+		
+	</bean>
+
+	<bean id="personDao" class="com.homework.PersonDao">
+		<property name="persons">
+			<map key-type="java.lang.Long" value-type="com.homework.Person">
+				<entry key="0">
+					<bean class="com.homework.Person"
+						p:name="name1"
+						p:surname="surname1"
+						p:blacklisted="false"
+					/>
+				</entry>
+				<entry key="1">
+					<bean class="com.homework.Person"
+						p:name="name2"
+						p:surname="surname2"
+						p:blacklisted="true"
+					/>
+				</entry>
+				<entry key="2">
+					<bean class="com.homework.Person"
+						p:name="name3"
+						p:surname="surname3"
+						p:blacklisted="false"
+					/>
+				</entry>
+				<entry key="3">
+					<bean class="com.homework.Person"
+						p:name="name4"
+						p:surname="surname4"
+						p:blacklisted="true"
+					/>
+				</entry>
+			</map>
+		</property>
+		<property name="lastUnusedId" value="4"></property>
+	</bean>
+	<bean id="app" class="com.homework.App"></bean>
+	<bean id="loanController" autowire="byName" class="com.homework.LoanController">
+		<property name="maxRequestsPerMinute" value="5"></property>
+	</bean>
+	<bean id="personController" autowire="byName"
+		class="com.homework.PersonController">
+	</bean>
+</beans>
